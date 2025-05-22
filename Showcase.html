@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="icon" type="image/x-icon" href="https://yt3.googleusercontent.com/PW-QIeAeYvPkE0J6suP_R33mHGkRQt3BWig02rIp5ZF_YwBIiIxYlAU6wm9tmsM2lWg-dC-G=s160-c-k-c0x00ffffff-no-rj">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My World Travel Showcase</title>
+    <style>
+        :root {
+            --primary-color: #1a237e;
+            --accent-color: #ff5722;
+            --bg-light: #f8f9fa;
+            --bg-dark: #121212;
+            --text-light: #ffffff;
+            --text-dark: #212121;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            scroll-behavior: smooth;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a237e 0%, #303f9f 100%);
+            color: var(--text-light);
+            padding: 1.5rem;
+            text-align: left;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            padding-left: 6rem;
+        }
+        
+        header h1 {
+            margin: 0;
+            animation: slideInFromLeft 0.8s ease-out;
+        }
+        
+        header p {
+            margin-top: 0.5rem;
+            opacity: 0.9;
+            animation: slideInFromLeft 0.8s ease-out;
+            animation-delay: 0.2s;
+            animation-fill-mode: both;
+        }
+        
+        @keyframes slideInFromLeft {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .back-to-home {
+            position: absolute;
+            top: 1.5rem;
+            right: 4.0rem;
+            background-color: transparent;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.5s ease-in-out;
+            animation-fill-mode: both;
+            animation-delay: 0.5s;
+            animation-timing-function: ease-out;
+            z-index: 10;
+        }
+        
+        .back-to-home:hover {
+            background-color: rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .back-to-home:before {
+            content: '←';
+            font-size: 1.5em;
+        }
+        
+        @media (max-width: 768px) {
+            .back-to-home {
+                top: 1rem;
+                right: 1rem;
+                width: 35px;
+                height: 35px;
+            }
+            
+            .back-to-home:before {
+                font-size: 1.2em;
+            }
+            
+            header {
+                padding-left: 2rem;
+            }
+        }
+        
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            color: white;
+            border-radius: 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+        
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-to-top:hover {
+            background-color: #4d342c;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes slideInUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        @keyframes borderPulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 87, 34, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 87, 34, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 87, 34, 0); }
+        }
+        
+        .card {
+            animation: slideInUp 0.5s ease-out;
+            animation-fill-mode: both;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        
+        .card-img-container {
+            overflow: hidden;
+        }
+        
+        .card-img-container img {
+            transition: transform 0.5s ease;
+        }
+        
+        .card:hover .card-img-container img {
+            transform: scale(1.1);
+        }
+        
+        .card-tag {
+            animation: fadeInScale 0.5s ease-out 0.3s;
+            animation-fill-mode: backwards;
+        }
+        
+        .featured-section {
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .featured-content {
+            animation: slideInUp 0.8s ease-out 0.2s;
+            animation-fill-mode: backwards;
+        }
+        
+        .section-title {
+            animation: slideInFromLeft 0.6s ease-out;
+        }
+        
+        .section-description {
+            animation: slideInFromLeft 0.6s ease-out 0.2s;
+            animation-fill-mode: backwards;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .card {
+            background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+            border-radius: 2px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .card-img-container {
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .card-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .card-tag {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(255, 87, 34, 0.9);
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 2px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+        
+        .card-content {
+            padding: 1.2rem;
+        }
+        
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+        
+        .card-button {
+            display: inline-block;
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 0.4rem 0.8rem;
+            border-radius: 2px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: all 0.6s ease;
+        }
+        
+        .card-button:hover {
+            background-color: #e0e0e0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .card-button:hover:before {
+            left: 100%;
+        }
+        
+        footer {
+            background: linear-gradient(135deg, #1a237e 0%, #303f9f 100%);
+            color: var(--text-light);
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+        
+        .featured-section {
+            position: relative;
+            height: 400px;
+            margin-bottom: 2rem;
+            border-radius: 2px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+        
+        .featured-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 2s ease;
+        }
+        
+        .featured-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+        }
+        
+        .featured-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .featured-description {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            max-width: 600px;
+        }
+        
+        .featured-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 2px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.2s ease;
+        }
+        
+        .featured-button:hover {
+            background-color: #e64a19;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            text-align: left;
+            position: relative;
+            padding-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: var(--accent-color);
+        }
+        
+        .section-description {
+            text-align: left;
+            max-width: 700px;
+            margin: 0 0 1.5rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .featured-section {
+                height: 350px;
+            }
+            
+            .featured-title {
+                font-size: 1.5rem;
+            }
+            
+            .container {
+                padding: 1.5rem;
+            }
+            
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .scroll-to-top {
+                width: 40px;
+                height: 40px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-section {
+                height: 300px;
+            }
+            
+            .featured-title {
+                font-size: 1.3rem;
+            }
+            
+            .featured-description {
+                font-size: 0.9rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            header {
+                padding: 1.2rem;
+                padding-left: 1.5rem;
+            }
+            
+            header h1 {
+                font-size: 1.5rem;
+            }
+            
+            header p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="Travel.html" class="back-to-home" aria-label="Back to Home"></a>
+        <h1>My World Travel Showcase</h1>
+        <p>Destination Adventures & Travel Vlogs</p>
+    </header>
+    
+    <a href="#" class="scroll-to-top" id="scrollToTop">↑</a>
+    
+    <div class="container">
+        <div class="featured-section">
+            <img src="https://i.postimg.cc/qq8KGn60/2-F8-A1-EE4-4-D9-D-407-A-8-EB2-50-B5-AD367-D03-1.jpg" alt="Featured travel destination" class="featured-image">
+            <div class="featured-content">
+                <h2 class="featured-title">Traveling Across Continents</h2>
+                <p class="featured-description">From the bustling streets of India to the serene landscapes of Mongolia, discover a world of adventures through my travel documentation.</p>
+                <a href="#destinations" class="featured-button">Explore Destinations</a>
+            </div>
+        </div>
+        
+                    <div id="destinations">
+            <h2 class="section-title">Travel Destinations</h2>
+            <p class="section-description">Explore travel guides and video content for each destination.</p>
+            
+            <div class="grid-container">
+                <!-- India -->
+                <div class="card">
+                    <div class="card-img-container">
+                        <img src="https://i.ytimg.com/vi/p0Bi56B2Zlw/hqdefault.jpg" alt="India">
+                        <span class="card-tag">INDIA</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Incredible India: A Cultural Journey</h3>
+                        <a href="https://www.youtube.com/playlist?list=PLIHAM6pcmvd80oP8PjT_-YIkqSYzCyERc" class="card-button" target="_blank">Watch</a>
+                    </div>
+                </div>
+
+                   <div class="card">
+                    <div class="card-img-container">
+                        <img src="https://img.youtube.com/vi/_XgXZM4KZbs/maxresdefault.jpg" alt="Singapore">
+                        <Srilanka class="card-tag">Sri Lanka </span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Sri Lanka Tour Vlogs</h3>
+                        <a href="https://www.youtube.com/watch?si=_CtS1MClf7zfWNUE&v=_XgXZM4KZbs&feature=youtu.be" class="card-button" target="_blank">Watch</a>
+                    </div>
+            </div>
+            
+                
+                <!-- Vietnam -->
+                <div class="card">
+                    <div class="card-img-container">
+                        <img src="https://img.youtube.com/vi/JnutKASwLDo/maxresdefault.jpg" alt="Vietnam">
+                        <span class="card-tag">VIETNAM</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Vietnam Cycle Ride</h3>
+                        <a href="https://youtu.be/JnutKASwLDo?si=KgIZO-NCtCCuNsHv" class="card-button" target="_blank">Watch</a>
+                    </div>
+                </div>
+                
+                <!-- Cambodia -->
+                <div class="card">
+                    <div class="card-img-container">
+                        <img src="https://i.ytimg.com/vi/Z32FfmDA474/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLDi8jcAxn414Ety0zaPv60dSuAORw" alt="Cambodia">
+                        <span class="card-tag">CAMBODIA</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Cambodia: Ancient Temples & Modern Resilience</h3>
+                        <a href="https://youtube.com/playlist?list=PLIHAM6pcmvd8gf1J1-UsvM0KBH8PPfutL&si=UGXx3HmlCRaLdvwt" class="card-button" target="_blank">Watch</a>
+                    </div>
+                </div>
+                
+                <!-- Thailand -->
+                <div class="card">
+                    <div class="card-img-container">
+                        <img src="https://i.ytimg.com/vi/nseyqn1a3Kg/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAUT8rs-xMBqo74zCEl4wFdS_hyZg" alt="Thailand">
+                        <span class="card-tag">THAILAND</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Thailand: Land of Contrasts</h3>
+                        <a href="https://youtube.com/playlist?list=PLIHAM6pcmvd_U52J-Y2iMSt1pSTU3rtQP&si=FJKacu04cZ6x9IhX" class="card-button" target="_blank">Watch</a>
+                    </div>
+                </div>
+                
+                <!-- Malaysia -->
+                <div class="card">
+                    <div class="card-img-container">
+                        <img src="https://i.ytimg.com/vi/o-ew0opX9GM/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLD8rufpXasX1KZ9sFjlfKcNHQiXTA" alt="Malaysia">
+                        <span class="card-tag">MALAYSIA</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Malaysia: Where Cultures Meet</h3>
+                        <a href="https://youtube.com/playlist?list=PLIHAM6pcmvd8F1GpjqPcr8SNNqIzKqjmP&si=cITV2epQ_e4Tgu1c" class="card-button" target="_blank">Watch</a>
+                    </div>
+                </div>
+                
+                <!-- Indonesia -->
+                <div class="card">
+                    <div class="card-img-container">
+                        <img src="https://img.youtube.com/vi/nseyqn1a3Kg/maxresdefault.jpg" alt="Indonesia">
+                        <span class="card-tag">INDONESIA</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title"> Skywlk Building | Thailand To Malaysia Tour By Cycle</h3>
+                        <a href="https://youtube.com/playlist?list=PLIHAM6pcmvd-wDVbNyfanijHy0q0FuZKI&si=3nu3NAVdjpcIFhB0" class="card-button" target="_blank">Watch</a>
+                    </div>
+                </div>
+                
+                <!-- China -->
+                <div class="card">
+                    <div class="card-img-container">
+                        <img src="https://i.ytimg.com/vi/jJGEm-WoZdU/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLA7ce3QkpmbXhIfnOltAJqPSqvdcQ" alt="China">
+                        <span class="card-tag">CHINA</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">China: Cycle Ride</h3>
+                        <a href="https://youtube.com/playlist?list=PLIHAM6pcmvd-HmQQigP40LpPYUIbzL1Yd&si=1xnw7dI0WkyR2Zpf" class="card-button" target="_blank">Watch</a>
+                    </div>
+                </div>
+                
+                <!-- Japan -->
+                <div class="card">
+                    <div class="card-img-container">
+                        <img src="https://i.ytimg.com/vi/gAdcaxuxKe0/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAEk9sKAJxOdvf6SAw485km8GWuew" alt="Japan">
+                        <span class="card-tag">JAPAN</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Japan Cycle Ride</h3>
+                        <a href="https://youtube.com/playlist?list=PLIHAM6pcmvd8avtSCx8SXoKXdTMI7LLGs&si=UM1JZ6rJ4uPwxByZ" class="card-button" target="_blank">Watch</a>
+                    </div>
+                </div>
+                
+                <!-- South Korea -->
+                <div class="card">
+                    <div class="card-img-container">
+                        <img src="https://img.youtube.com/vi/hVDn-UkRIv8/maxresdefault.jpg" alt="South Korea">
+                        <span class="card-tag">SOUTH KOREA</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">South Korea: Exploring K-Culture</h3>
+                        <a href="https://www.youtube.com/playlist?list=PLIHAM6pcmvd_s969D1EKiMrAOOqRad9E1" class="card-button" target="_blank">Watch</a>
+                    </div>
+                </div>
+                
+                <!-- Taiwan -->
+                <div class="card">
+                    <div class="card-img-container">
+                        <img src="https://i.ytimg.com/vi/ggPuBstNzmU/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLBzMVNVhwm7PRzrhWYG6K1Cxk6U2g" alt="Taiwan">
+                        <span class="card-tag">TAIWAN</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Taiwan: Island of Treasures</h3>
+                        <a href="https://youtube.com/playlist?list=PLIHAM6pcmvd_sQ4G9tz5d2QoOApFXoN1Y&si=yGhKqsx1sgCxEXud" class="card-button" target="_blank">Watch</a>
+                    </div>
+                </div>
+                
+                <!-- Mongolia -->
+                <div class="card">
+                    <div class="card-img-container">
+                        <img src="https://i.postimg.cc/T3XJPST7/Whats-App-Image-2025-05-05-at-08-29-43-9d917eca.jpg" alt="Mongolia">
+                        <span class="card-tag">MONGOLIA</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Mongolia: Nomadic Adventures</h3>
+                        <a href="https://youtube.com/playlist?list=PLIHAM6pcmvd98NWmBY6qDGvH_4ktiM22v&si=l7avsu7N2Uiva8qt" class="card-button" target="_blank">Watch</a>
+                    </div>
+                </div>
+                
+                <!-- Australia -->
+                <div class="card">
+                    <div class="card-img-container">
+                        <img src="https://i.postimg.cc/pdLG27ZN/192637-E0-F8-C3-4-C06-A240-E4-DD52-E78-F7-E-1.jpg" alt="Australia">
+                        <span class="card-tag">AUSTRALIA</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Australia: Ocean to Outback</h3>
+                        <a href="https://youtube.com/playlist?list=PLIHAM6pcmvd-Tmh21KtBa1u-J172UErRM&si=cJBSrS7Kq7Vvgyez" class="card-button" target="_blank">Watch</a>
+                    </div>
+                </div>
+                
+                <!-- Singapore -->
+                <div class="card">
+                    <div class="card-img-container">
+                        <img src="https://img.youtube.com/vi/suupf1pjFRc/maxresdefault.jpg" alt="Singapore">
+                        <span class="card-tag">SINGAPORE</span>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Singapore: City of the Future</h3>
+                        <a href="https://youtu.be/suupf1pjFRc?si=XaBEDtaT2XfO2Kli" class="card-button" target="_blank">Watch</a>
+                    </div>
+                </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add staggered animation delay to cards
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+                
+                // Add random subtle rotation to cards for more dynamic feel
+                const randomRotation = (Math.random() * 2 - 1) * 0.5; // Between -0.5 and 0.5 degrees
+                card.style.transform = `rotate(${randomRotation}deg)`;
+                
+                // Reset transform on hover to ensure clean hover effect
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = '';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    setTimeout(() => {
+                        this.style.transform = `rotate(${randomRotation}deg)`;
+                    }, 300);
+                });
+            });
+            
+            // Animate section titles when they come into view
+            const animateOnScroll = function() {
+                const titles = document.querySelectorAll('.section-title, .section-description');
+                
+                titles.forEach(title => {
+                    const titlePosition = title.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.2;
+                    
+                    if(titlePosition < screenPosition) {
+                        title.style.opacity = '1';
+                        title.style.transform = 'translateX(0)';
+                    }
+                });
+            };
+            
+            // Initial check for elements in view
+            animateOnScroll();
+            
+            // Scroll to top button functionality
+            const scrollToTopButton = document.getElementById('scrollToTop');
+            
+            // Show/hide scroll button based on scroll position
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    scrollToTopButton.classList.add('visible');
+                } else {
+                    scrollToTopButton.classList.remove('visible');
+                }
+                
+                // Trigger animation on scroll
+                animateOnScroll();
+            });
+
+            // Scroll to top when
+            scrollToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top:
+                    0,
+                    behavior: 'smooth'
+                });
+                });
+        });
+    </script>
+</body>
+</html>
