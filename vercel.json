@@ -1,8 +1,8 @@
 {
-    "rewrites":  [
-        {
-            "source":"(.*)",
-            "destination":"/Ranjit.html"
-        }
-     ]
- }  
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/Travel.html"
+    }
+  ]
+}
