@@ -2,7 +2,7 @@
     "rewrites":  [
         {
             "source":"(.*)",
-            "destination":"/Racan.html"
+            "destination":"/Ranjit.html"
         }
      ]
  }  
