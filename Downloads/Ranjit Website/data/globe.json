@@ -1,0 +1,43 @@
+{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "World"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-180, -90],
+            [180, -90],
+            [180, 90],
+            [-180, 90],
+            [-180, -90]
+          ]
+        ]
+      }
+    }
+  ]
+}{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "World"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-180, -90],
+            [180, -90],
+            [180, 90],
+            [-180, 90],
+            [-180, -90]
+          ]
+        ]
+      }
+    }
+  ]
+}

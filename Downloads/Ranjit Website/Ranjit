@@ -1,0 +1,374 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ranjith On Wheels</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f7fafd;
+  color: #222;
+}
+header .header-bg {
+  background: url('https://i.postimg.cc/wHWwh0xr/Whats-App-Image-2025-05-05-at-08-15-28-48208464.jpg') center/cover no-repeat;
+  position: relative;
+  height: 350px;
+  color: #fff;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+}
+.logo {
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+.support-btn {
+  background: #fff;
+  color: #ff7f50;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.header-content {
+  text-align: center;
+  margin-top: 40px;
+  position: relative;
+}
+.header-content h2 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+.location {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+.header-img {
+  width: 120px;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  margin-top: 10px;
+}
+.about {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 10%;
+  background: #fff;
+  margin-top: -60px;
+  border-radius: 20px;
+  box-shadow: 0 2px 12px #0001;
+}
+.about-text {
+  flex: 2;
+  font-size: 1.1rem;
+  padding-right: 30px;
+}
+.about-img img {
+  width: 180px;
+  border-radius: 16px;
+}
+.current-trip {
+  padding: 40px 10%;
+}
+.current-trip h3 {
+  color: #222;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+.trip-video {
+  position: relative;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 600px;
+}
+.trip-video img {
+  width: 100%;
+  border-radius: 16px;
+}
+.play-btn {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px; height: 60px;
+  background: rgba(255,255,255,0.8);
+  border-radius: 50%;
+  cursor: pointer;
+  background-image: url('play-icon.png');
+  background-size: 40px 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.experience {
+  display: flex;
+  align-items: flex-start;
+  padding: 40px 10%;
+  gap: 30px;
+}
+.exp-imgs img {
+  width: 120px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  display: block;
+}
+.exp-text {
+  flex: 2;
+}
+.exp-text h4 {
+  margin-top: 0;
+  color: #222;
+}
+.countries {
+  text-align: center;
+  padding: 40px 10%;
+}
+.globe-img {
+  width: 180px;
+  margin-bottom: 10px;
+}
+.highlight {
+  color: #e74c3c;
+  font-weight: bold;
+}
+.country-flags {
+  margin: 20px 0;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.subscribers {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+.gallery {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  padding: 30px 10%;
+}
+.gallery img {
+  width: 220px;
+  border-radius: 14px;
+}
+.view-trips {
+  text-align: center;
+  margin: 30px 0;
+}
+.view-trips button {
+  background: #0077ff;
+  color: #fff;
+  border: none;
+  border-radius: 22px;
+  padding: 12px 32px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+footer {
+  background: #1a2a3a;
+  color: #fff;
+  padding: 30px 0 10px 0;
+  margin-top: 40px;
+}
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10%;
+  flex-wrap: wrap;
+}
+.footer-logo img {
+  width: 80px;
+}
+.footer-links a {
+  color: #fff;
+  margin: 0 12px;
+  text-decoration: none;
+  font-size: 1rem;
+}
+.footer-social a img {
+  width: 28px;
+  margin: 0 6px;
+}
+.footer-bottom {
+  text-align: center;
+  margin-top: 18px;
+  font-size: 0.95rem;
+  color: #bbb;
+}
+@media (max-width: 900px) {
+  .about, .experience, .gallery {
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 4%;
+  }
+  .about-text, .exp-text {
+    padding-right: 0;
+  }
+  .footer-content {
+    flex-direction: column;
+    gap: 18px;
+  }
+}
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="header-bg">
+      <nav>
+        <span class="logo">RANJITH ON WHEELS</span>
+        <button class="support-btn">Support</button>
+      </nav>
+      <div class="header-content">
+        <h2>Hi 👋 I am Ranjith,<br>Welcome to my Official Website</h2>
+        <div class="location">
+          <span>📍 Indonesia</span>
+        </div>
+        <img src="" alt="Ranjith" class="header-img">
+      </div>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section class="about">
+    <div class="about-text">
+      <p>
+        I am passionate Indian cyclist and influencer on a mission to promote sustainable travel and environmental awareness. Aims to cycle across six continents to inspire a global movement toward eco-friendly transportation and a greener planet.
+      </p>
+    </div>
+    <div class="about-img">
+      <img src="about.jpg" alt="Ranjith Cycling">
+    </div>
+  </section>
+
+  <!-- Current Trip Section -->
+  <section class="current-trip">
+    <h3>My Current Trip</h3>
+    <p>
+      India to Australia journey! My countless hours made me strong enough to perform more adventures journey around the world now current plan to explore beautiful Australia from India.
+    </p>
+    <div class="trip-video">
+      <img src="trip-banner.jpg" alt="Trip Banner">
+      <div class="play-btn" onclick="playVideo()"></div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section class="experience">
+    <div class="exp-imgs">
+      <img src="exp1.jpg" alt="Cycling 1">
+      <img src="exp2.jpg" alt="Cycling 2">
+    </div>
+    <div class="exp-text">
+      <h4>Personal Experience</h4>
+      <p>
+        Meet Ranjith, an avid bicyclist driven by the thrill of the open road. With an energizing spirit, Ranjith has conquered epic journeys, including a 39,000KM ride spanning 13 countries. Harnessing over 4 years on the saddle, Ranjith embodies the essence of adventure, resilience, and a deep appreciation for the world's wonders. Ready to pedal into the unknown, Ranjith continues to inspire others to chase their dreams and push the boundaries of possibility.
+      </p>
+    </div>
+  </section>
+
+  <!-- Countries Section -->
+  <section class="countries">
+    <img src="globe.png" alt="Globe" class="globe-img">
+    <p>
+      Fearless cyclist explores <span class="highlight">13+ Countries</span> (39000+ KMs) on an unforgettable journey, pedaling through diverse cultures, landscapes, and forging unforgettable memories
+    </p>
+    <div class="country-flags">
+      <span>🇮🇳 Japan</span>
+      <span>🇹🇭 Thailand</span>
+      <span>🇰🇷 Korea</span>
+      <span>🇸🇬 Singapore</span>
+      <span>🇨🇳 China</span>
+      <span>🇦🇺 Australia</span>
+    </div>
+    <div class="subscribers">
+      <span class="highlight">379K+</span> subscribers
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="gallery">
+    <img src="gallery1.jpg" alt="Gallery 1">
+    <img src="gallery2.jpg" alt="Gallery 2">
+    <img src="gallery3.jpg" alt="Gallery 3">
+  </section>
+
+  <div class="view-trips">
+    <button>View my trips</button>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="logo.png" alt="Logo">
+      </div>
+      <div class="footer-links">
+        <a href="#">Home</a>
+        <a href="#">Countries</a>
+        <a href="#">Projects</a>
+        <a href="#">FAQ</a>
+      </div>
+      <div class="footer-social">
+        <a href="#"><img src="instagram.png" alt="Instagram"></a>
+        <a href="#"><img src="facebook.png" alt="Facebook"></a>
+        <a href="#"><img src="youtube.png" alt="YouTube"></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2023</span>
+      <span>ranjithonwheels.com</span>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html>

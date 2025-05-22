@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="https://yt3.googleusercontent.com/PW-QIeAeYvPkE0J6suP_R33mHGkRQt3BWig02rIp5ZF_YwBIiIxYlAU6wm9tmsM2lWg-dC-G=s160-c-k-c0x00ffffff-no-rj">
+    <title>World Traveler - Explore the Globe</title>
+    <script src="preloader.js"></script>
+    <link rel="stylesheet" href="travel.css">
+    <link rel="stylesheet" href="cookies-new.css">
+    <script type="module" src="vercel.js"></script>
+    <link rel="stylesheet" href="loader.css">
+    <link rel="stylesheet" href="preloader.css">
+    <link rel="stylesheet" href="navbar-loader.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+    body {
+        background: linear-gradient(120deg, #f7fafd 0%, #e3f0ff 100%);
+        background-size: 200% 200%;
+        animation: bgmove 10s ease-in-out infinite;
+    }
+    @keyframes bgmove {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    
+    /* Social Media Subscriber Count Styles */
+    .subscriber-count {
+        background:white;
+        color: rgb(10, 10, 10);
+        padding: 2rem;
+        text-align: center;
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    
+    .social-stats {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+        width: 100%;
+        max-width: 1000px;
+    }
+    
+    .social-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        min-width: 150px;
+        animation: fadeInScale 0.5s ease-out;
+        animation-fill-mode: both;
+        text-decoration: none;
+        color: rgb(28, 28, 28);
+        padding: 1rem;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+    }
+    
+    .social-item:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        transform: translateY(-5px);
+    }
+    
+    .social-item i {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        transition: transform 0.3s ease;
+    }
+    
+    .social-item:hover i {
+        transform: scale(1.2);
+    }
+    
+    .social-item p {
+        font-size: 1.1rem;
+        font-weight: 500;
+        margin: 0;
+    }
+    
+    .social-item.youtube i {
+        color: #FF0000;
+    }
+    
+    .social-item.instagram i {
+        color: #E1306C;
+    }
+    
+    .social-item.facebook i {
+        color: #1877F2;
+    }
+    
+    .social-item.twitter i {
+        color: #ffffff;
+    }
+    
+    .social-item.twitter img {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 0.5rem;
+        transition: transform 0.3s ease;
+    }
+    
+    .social-item:hover img {
+        transform: scale(1.2);
+    }
+    
+    .view-trips-btn {
+        background-color:  #035cae;
+        color: white;
+        border: none;
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+        font-weight: 500;
+        border-radius: 50px;
+        cursor: pointer;
+    }
+    
+    .view-trips-btn:hover {
+        background-color: #256bad;
+        transform: translateY(-3px);
+        border-radius: 50px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        animation: none;
+    }
+    
+    @keyframes fadeInScale {
+        from { opacity: 0; transform: scale(0.9); }
+        to { opacity: 1; transform: scale(1); }
+    }
+    
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+    
+    @media (max-width: 768px) {
+        .social-stats {
+            gap: 1.5rem;
+        }
+        
+        .social-item {
+            min-width: 130px;
+        }
+        
+        .social-item i {
+            font-size: 2.2rem;
+        }
+        
+        .social-item p {
+            font-size: 1rem;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .social-stats {
+            gap: 1rem;
+        }
+        
+        .social-item {
+            min-width: 120px;
+            padding: 0.8rem;
+        }
+        
+        .social-item i {
+            font-size: 2rem;
+        }
+        
+        .social-item p {
+            font-size: 0.9rem;
+        }
+        
+        .subscriber-count {
+            padding: 1.5rem 1rem;
+        }
+    }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+
+<nav class="navbar">         
+    <div class="logo">             
+        <h1>Ranjit on wheels</h1>         
+    </div>         
+    <div class="nav-links" id="navLinks">            
+         <i class="fas fa-times" id="closeMenu"></i>             
+         <ul>                 
+            <li><a href="#home">Home</a></li>                 
+            <li><a href="News.html">News</a></li>                 
+            <li><a href="Showcase.html">My trips</a></li>             
+        </ul>             <div class="sidebar-support">                 
+            <button>                    
+                 <a href="https://ranjithonwheels.in/page/support">Support!</a></button>             
+                </div>         
+            </div>        
+             <i class="fas fa-bars" id="openMenu"></i>         
+                <div class="support-btn">             
+    <a href="https://ranjithonwheels.in/page/support"><button type="button">Support!</button></a>        
+</div>
+            </nav>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 id="hero-title"></h1>
+            <p>Welcome to my Official Website</p>
+            <div class="location-tag">
+                <i class="fas fa-map-marker-alt"></i> Indonesia
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="about-text">
+            <p>I am a passionate Indian cyclist and influencer on a mission to promote sustainable travel and environmental awareness. Aims to cycle across six continents to inspire a global movement toward eco-friendly transportation and a greener planet.</p>
+        </div>
+        <div class="about-image">
+            <img src="https://i.postimg.cc/WznTDNX6/Whats-App-Image-2025-05-05-at-08-16-20-741a621e.jpg" alt="">
+        </div>
+    </section>
+
+    <!-- Current Trip Section -->
+    <section class="current-trip" id="mytrip">
+        <div class="section-title">
+            <i class="fas fa-map-marked-alt"></i> My Current Trip
+        </div>
+        <div class="trip-content">
+            <p>India to Australia journey! My countless hours made me strong enough to perform more adventures journey around the world now my next plan to explore beautiful Australia from India.</p>
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <iframe 
+                        src="https://www.youtube.com/embed/WR7lIgnpIDI?autoplay=1&mute=0&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&loop=1&playlist=WR7lIgnpIDI&cc_load_policy=0" 
+                        title="My Journey Video"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                    <div class="video-controls">
+                                     <button class="mute-btn" onclick="toggleMute()">
+                            <i class="fas fa-volume-up"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personal Experience Section -->
+    <section class="experience-section">
+        <div class="experience-images">
+            <img src="https://i.postimg.cc/sg4WyVwJ/Whats-App-Image-2025-05-05-at-08-30-04-25cbf10e.jpg" alt="Cycling experience 1">
+            <img src="https://i.postimg.cc/QMxVgcs2/Whats-App-Image-2025-05-05-at-08-17-51-1723bef5.jpg" alt="Cycling experience 2">
+            <img src="https://i.postimg.cc/WznTDNX6/Whats-App-Image-2025-05-05-at-08-16-20-741a621e.jpg" alt="Cycling experience 3">
+        </div>
+        <div class="experience-text">
+            <h2>Personal Experience</h2>
+            <p>Iam Ranjith, an avid bicyclist driven by the thrill of the open road. With an unwavering spirit, Ranjith has conquered epic journeys, including a 39,000 Km's ride and exploring 13+ countries. Having spent 4 years on the saddle, Ranjith embodies the essence of adventure, resilience, and a deep appreciation for the world's wonders. Ready to pedal into the unknown, Ranjith continues to inspire others to chase their dreams and push the boundaries of possibility.</p>
+        </div>
+    </section>
+
+    <!-- Globe Section -->
+    <section class="globe-section">
+        <div class="section-title">
+            <h2>My Travel Journey</h2>
+            <p>Explore the countries I've visited around the world</p>
+        </div>
+        <div id="globe-container"></div>
+    </section>
+
+    <!-- Country Flags Marquee -->
+    <div class="flags-container">
+        <div class="flags-marquee">
+            <div class="flag">
+                  <a href="https://youtube.com/playlist?list=PLIHAM6pcmvd8avtSCx8SXoKXdTMI7LLGs&si=UM1JZ6rJ4uPwxByZ">
+                <img src="https://i.pinimg.com/736x/d9/43/d3/d943d3b9ef79769ea3b0b4ceda238ace.jpg" alt="Japan Flag">
+                </a>
+                <span>
+                      <a href="https://youtu.be/k6mqnf5gc1c?si=HuO2SxRsH74OKVdi">
+                    Japan
+                    </a>
+                </a>
+                </span>
+            </div>
+            <div class="flag">
+                 <a href="https://youtube.com/playlist?list=PLIHAM6pcmvd_U52J-Y2iMSt1pSTU3rtQP&si=FJKacu04cZ6x9IhX">
+                <img src="https://i.pinimg.com/736x/f4/0b/a9/f40ba91096dad132099fa56789002fe8.jpg" alt="Thailand Flag">
+                </a>
+                <span>
+                   <a href="https://youtu.be/k6mqnf5gc1c?si=HuO2SxRsH74OKVdi">  Thailand</a></span>
+            </div>
+            <div class="flag">
+                 <a href="https://www.youtube.com/playlist?list=PLIHAM6pcmvd_s969D1EKiMrAOOqRad9E1"></a>
+                <img src="https://i.pinimg.com/736x/b7/f3/41/b7f341789b1f216c236e9f66cadc8f96.jpg" alt="Korea Flag">
+                </a>
+                <span>
+                     <Korea href="https://youtu.be/k6mqnf5gc1c?si=HuO2SxRsH74OKVdi">Korea</a></span>
+            </div>
+            <div class="flag">
+                 <a href="https://youtube.com/playlist?list=PLIHAM6pcmvd_U52J-Y2iMSt1pSTU3rtQP&si=FJKacu04cZ6x9IhX">
+                <img src="https://i.pinimg.com/736x/f1/a3/7f/f1a37fd79452ef8d7ce8069638143082.jpg" alt="Singapore Flag">
+                </a>
+                <span>
+                     <a href="https://youtu.be/k6mqnf5gc1c?si=HuO2SxRsH74OKVdi">Singapore</a></span>
+            </div>
+            <div class="flag">
+                <a href="https://youtube.com/playlist?list=PLIHAM6pcmvd-HmQQigP40LpPYUIbzL1Yd&si=1xnw7dI0WkyR2Zpf">
+                <img src="https://i.pinimg.com/736x/16/cc/8f/16cc8f16653964455388cf40ca87135a.jpg" alt="China Flag">
+                </a>
+                <span>
+                   <a href="https://youtu.be/k6mqnf5gc1c?si=HuO2SxRsH74OKVdi">
+                    China
+                    </a>
+                </span>
+            </div>
+            <div class="flag">
+                 <a href="https://youtube.com/playlist?list=PLIHAM6pcmvd-Tmh21KtBa1u-J172UErRM&si=cJBSrS7Kq7Vvgyez">
+                <img src="https://i.pinimg.com/736x/56/1a/4c/561a4c106fbdf99129e369c4fc3142c4.jpg" alt="Australia Flag">
+                </a>
+                <span>
+                    <a href="https://youtu.be/k6mqnf5gc1c?si=HuO2SxRsH74OKVdi"></a>
+                    Australia
+                    </a>
+                </span>
+            </div>
+            <div class="flag">
+                  <a href="https://youtube.com/playlist?list=PLIHAM6pcmvd80oP8PjT_-YIkqSYzCyERc&si=Uk5Iz_2qiFtW0NYL">
+                <img src="https://i.pinimg.com/736x/76/e2/bc/76e2bc3a8c3503f9fdd53aaa924b89e5.jpg" alt="India Flag">
+                </a>
+                <span>
+                <a href="https://youtu.be/k6mqnf5gc1c?si=HuO2SxRsH74OKVdi">
+                    India
+                </a>
+                </span>
+            </div>
+            <div class="flag">
+                  <a href="">
+                <img src="https://i.pinimg.com/736x/e5/23/a3/e523a34c2de8c320480fd43ccc9d0c5b.jpg" alt="India Flag">
+                </a>
+                <span>
+                <a href="https://youtu.be/_XgXZM4KZbs?si=_CtS1MClf7zfWNUE">
+                   Sri Lanka
+                </a>
+                </span>
+            </div>
+                       <div class="flag">
+                  <a href="https://youtube.com/playlist?list=PLIHAM6pcmvd98NWmBY6qDGvH_4ktiM22v&si=l7avsu7N2Uiva8qt">
+                <img src="https://i.pinimg.com/736x/d2/36/88/d236887336dac260e38b99679d8f0b92.jpg" alt="India Flag">
+                </a>
+                <span>
+                <a href="https://youtu.be/k6mqnf5gc1c?si=HuO2SxRsH74OKVdi">
+                   Mongolia  
+                </a>
+                </span>
+            </div>
+              <div class="flag">
+                  <a href="https://youtube.com/playlist?list=PLIHAM6pcmvd8F1GpjqPcr8SNNqIzKqjmP&si=cITV2epQ_e4Tgu1c">
+                <img src="https://i.pinimg.com/736x/68/ce/a3/68cea30709c608a4e8d7a3fb6f738824.jpg" alt="India Flag">
+                </a>
+                <span>
+                <a href="https://youtu.be/k6mqnf5gc1c?si=HuO2SxRsH74OKVdi">
+                   Malaysia  
+                </a>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- News Section -->
+    <section class="news-section" id="news">
+        <div class="section-title">
+            <h2>Latest Adventures</h2>
+            <div class="travel-icon">
+                <i class="fas fa-globe-asia"></i>
+            </div>
+        </div>
+        <div class="news-container">
+            <div class="news-card">
+                <div class="news-image">
+                    <img src="https://i.ytimg.com/vi/7uekoaMSruQ/maxresdefault.jpg" alt="Indonesia Adventure">
+                    <div class="news-overlay">
+                        <span class="location-tag"><i class="fas fa-map-marker-alt"></i> China</span>
+                    </div>
+                </div>
+                <div class="news-content">
+                    <div class="news-date">
+                        <i class=""></i> 
+                    </div>
+                    <h3>hyderbad to China</h3>
+                    <p>
+China City Vlog Telugu | Shanghai Vlog China | Chin cycle ride | Ranjith On Wheels</p>
+                    <a href="https://www.youtube.com/watch?v=gAdcaxuxKe0&list=PLIHAM6pcmvd8avtSCx8SXoKXdTMI7LLGs" class="read-more">Watch Now <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-image">
+                    <img src="https://ranjithonwheels.in/portfolio/mSPgC0ApY75R0t3j4w0AcIdxKbceYWYyDJKKeUx7.jpg" alt="Thailand Journey">
+                    <div class="news-overlay">
+                        <span class="location-tag"><i class="fas fa-map-marker-alt"></i>Australia</span>
+                    </div>
+                </div>
+                <div class="news-content">
+                    <div class="news-date">
+                         
+                    </div>
+                    <h3>India To Australia Cycle Tour</h3>
+                    <p>India To Australia Cycle Tour | Travel Vlogs Latest | Australia Cycle Ride | Ranjith On Wheels</p>
+                    <a href="https://youtu.be/0khVcaOomiQ?si=2Ffvt6CYVlllQ6co" class="read-more">Watch Now<i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-image">
+                    <img src="https://i.postimg.cc/Sx0Dtt2B/Whats-App-Image-2025-05-05-at-08-17-50-46663c1f.jpg" alt="Japan Expedition">
+                    <div class="news-overlay">
+                        <span class="location-tag">
+                            <i class="fas fa-map-marker-alt"></i> Japan
+                            </a>
+                        </span>
+                    </div>
+                </div>
+                <div class="news-content">
+                    <div class="news-date">
+                       
+                    </div>
+                    <h3>Japan Ride</h3>
+                    <p>cycle పైన Japan reach అయ్యా | Cycle Ride in Japan | Cycle Vlogs Telugu | Ranjith On Wheels</p>
+                    <a href="https://www.youtube.com/watch?v=gAdcaxuxKe0&list=PLIHAM6pcmvd8avtSCx8SXoKXdTMI7LLGs" class="read-more">Watch Now<i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Subscriber Count -->
+    <div class="subscriber-count">
+        <div class="social-stats">
+            <a href="https://www.youtube.com/@RanjithOnWheels" target="_blank" class="social-item youtube">
+                <i class="fab fa-youtube"></i>
+                <p>379K+ subscribers</p>
+            </a>
+            <a href="https://www.instagram.com/ranjithonwheels/" target="_blank" class="social-item instagram">
+                <i class="fab fa-instagram"></i>
+                <p>765K+ followers</p>
+            </a>
+            <a href="https://www.facebook.com/ranjithonwheels" target="_blank" class="social-item facebook">
+                <i class="fab fa-facebook"></i>
+                <p>60K+ followers</p>
+            </a>
+            <a href="https://twitter.com/ranjithonwheels" target="_blank" class="social-item twitter">
+                <img src="https://img.icons8.com/?size=100&id=phOKFKYpe00C&format=png&color=000000" alt="X (Twitter) Logo">
+                <p>Follow me on X</p>
+            </a>
+        </div>
+        <button class="view-trips-btn" onclick="window.location.href='Showcase.html'">View all trips</button>
+    </div>
+
+    <!-- Footer -->
+    <footer id="aboutme">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="https://ranjithonwheels.in/website/images/logo.png" alt="Traveler Logo">
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="News.html">News</a></li>
+                    <li><a href="showcase.html">My Trips</a></li>
+                    <li><a href="">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact</h3>
+                <p><i class="fas fa-envelope"></i> worldtraveleronwheels@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 | All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="loader.js"></script>
+    <script src="travel.js"></script>
+    <script src="animations.js"></script>
+    <script src="cookies-new.js"></script>
+    <script src="navbar-loader.js"></script>
+    <script src="remove-scroll-top.js"></script>
+    <script>
+    // Add this to your existing script section
+    document.addEventListener('DOMContentLoaded', function() {
+        // Typing animation for hero title
+        const text = " Hi 👋 I am Ranjith,";
+        const el = document.getElementById('hero-title');
+        let i = 0;
+        function type() {
+            if (i < text.length) {
+                el.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(type, 300);
+            }
+        }
+        type();
+        
+        // Add staggered animation delay to social media items
+        const socialItems = document.querySelectorAll('.social-item');
+        socialItems.forEach((item, index) => {
+            item.style.animationDelay = `${index * 0.15}s`;
+        });
+    });
+
+    // Initialize video mute state
+    document.addEventListener('DOMContentLoaded', function() {
+        const muteBtn = document.querySelector('.mute-btn i');
+        muteBtn.className = 'fas fa-volume-up';
+    });
+
+    function toggleMute() {
+        const iframe = document.querySelector('.video-wrapper iframe');
+        const muteBtn = document.querySelector('.mute-btn i');
+        
+        // Get the current src
+        let currentSrc = iframe.src;
+        
+        // Check if video is currently muted
+        const isMuted = currentSrc.includes('mute=1');
+        
+        // Update the src with the opposite mute state
+        if (isMuted) {
+            currentSrc = currentSrc.replace('mute=1', 'mute=0');
+            muteBtn.className = 'fas fa-volume-up';
+        } else {
+            currentSrc = currentSrc.replace('mute=0', 'mute=1');
+            muteBtn.className = 'fas fa-volume-mute';
+        }
+        
+        // Update the iframe src
+        iframe.src = currentSrc;
+    }
+
+    // Scroll Animation Observer
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                // Unobserve after animation
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observe all sections and cards
+    document.querySelectorAll('.about-section, .current-trip, .experience-section, .news-section, .news-card, .subscriber-count, footer').forEach(section => {
+        observer.observe(section);
+    });
+
+    document.addEventListener('scroll', () => {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+        
+    // Mobile Menu Functionality
+    const openMenu = document.getElementById('openMenu');
+    const closeMenu = document.getElementById('closeMenu');
+    const navLinks = document.getElementById('navLinks');
+
+    openMenu.addEventListener('click', () => {
+        navLinks.classList.add('active');
+    });
+
+    closeMenu.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+    });
+    });
+    </script>
+
+</body>
+</html>
